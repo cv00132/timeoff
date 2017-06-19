@@ -1,0 +1,15 @@
+<div class="">
+    This is the Employees template.
+</div>
+
+<div ng-repeat="employee in employeesVm.employees" class="columns is-one-third">
+        <div class="column is-one-third">
+            <h2>{{employee.Name}}</h2>
+            <h3>{{employee.EmailAddress}}</h3>
+            <p>Start: {{employee.StartTime}}<p>
+            <p>End: {{employee.EndTime}}</p>
+            <p>Status: {{employee.Status}}</p>
+        </div>
+</div>
+
+<div ui-view></div>

@@ -1,0 +1,194 @@
+<div class="">
+    This is the Request template.
+</div>
+
+<!-- <div class="field">
+  <label class="label">Employee</label>
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="text" placeholder="Text input" ng-model="input.Name">
+    <span class="icon is-small is-left">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fa fa-check"></i>
+    </span>
+  </p>
+  <p class="help is-success">Employee name is correct</p>
+</div>
+
+<div class="field">
+  <label class="label">Email</label>
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="text" placeholder="Email input" ng-model="input.EmailAddress">
+    <span class="icon is-small is-left">
+      <i class="fa fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fa fa-warning"></i>
+    </span>
+  </p>
+  <p class="help is-danger">Email is invalid</p>
+</div>
+
+
+
+<div class="field">
+  <label class="label">Reason for request</label>
+  <p class="control">
+    <span class="select">
+      <select ng-model="input.Reason">
+        <option value="Sick">Sick</option>
+        <option value="Vacation">Vacation</option>
+        <option value="Other">Other</option>
+      </select>
+    </span>
+  </p>
+</div>
+
+<div class="field" ng-show="manager === true">
+  <label class="label">Comment</label>
+  <p class="control">
+    <textarea class="textarea" placeholder="Write comment here" ng-model="input.Comment"></textarea>
+  </p>
+</div>
+
+<div class="field" ng-show="manager === true">
+  <label class="label">Status</label>
+  <p class="control">
+    <span class="select">
+      <select ng-model="input.Status" placeholder="Select status" value="Pending">
+        <option value="Approved">Approved</option>
+        <option value="Rejected">Rejected</option>
+      </select>
+    </span>
+  </p>
+</div>
+
+<div class="field is-grouped">
+  <p class="control">
+    <button class="button is-primary" ng-click="requestVm.requestTimeoff(input)">Submit</button>
+  </p>
+  <p class="control">
+    <button class="button is-link">Cancel</button>
+  </p>
+</div> -->
+
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Employee</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-grouped">
+      <p class="control is-expanded has-icons-left">
+        <input class="input" type="text" placeholder="Name" ng-model="input.Name">
+        <span class="icon is-small is-left">
+          <i class="fa fa-user"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control is-expanded has-icons-left has-icons-right">
+        <input class="input" type="email" placeholder="Example@email.com" ng-model="input.EmailAddress">
+        <span class="icon is-small is-left">
+          <i class="fa fa-envelope"></i>
+        </span>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Start Time</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-grouped">
+      <p class="control has-icons-left">
+        <input class="input" type="datetime-local" ng-model="input.StartTime">
+        <span class="icon is-small is-left">
+          <i class="fa fa-clock-o"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field-label is-normal">
+      <label class="label">End Time</label>
+    </div>
+    <div class="field is-grouped">
+      <p class="control has-icons-left">
+        <input class="input" type="datetime-local" ng-model="input.EndTime">
+        <span class="icon is-small is-left">
+          <i class="fa fa-clock-o"></i>
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Reason</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control">
+        <div class="select is-fullwidth">
+          <select ng-model="input.Reason" ng-init="input.Reason = Other">
+            <option value="Sick">Sick leave</option>
+            <option value="Vacation">Vacation</option>
+            <option value="Maternity">Maternity</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Remote-work">Working Remote</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Status</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control">
+        <div class="select is-fullwidth">
+          <select ng-model="input.Status" ng-init="input.Status = Pending">
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Comments</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <textarea class="textarea" placeholder="Enter comments here" ng-model="input.Comments"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <!-- Left empty for spacing -->
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary" ng-click="requestVm.requestTimeoff(input)">
+          Submit Request
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

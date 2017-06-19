@@ -1,0 +1,33 @@
+<nav class="nav has-shadow">
+  <div class="container">
+    <div class="nav-left">
+      <a href="#!/home" class="nav-item">
+        <img src="" alt="logo">
+      </a>
+      <a href="#!/home" class="nav-item is-tab is-hidden-mobile">Home</a>
+      <a href="#!/employees" class="nav-item is-tab is-hidden-mobile">Employees</a>
+      <a href="#!/request" class="nav-item is-tab is-hidden-mobile">Requests</a>
+
+      <div class="nav-item control">
+        <a href="#!/request" class="button is-primary">
+          New Request
+        </a>
+      </div>
+
+    </div>
+    <div class="nav-right nav-menu">
+      <a class="nav-item is-tab">
+        <figure class="image is-16x16" style="margin-right: 8px;">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </figure>
+        Profile
+      </a>
+    </div>
+    <span class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </div>
+</nav>
+<div ui-view></div>
