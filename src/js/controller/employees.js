@@ -7,7 +7,7 @@ function EmployeesController($http, $state, SERVER) {
     vm.getEmployees = getEmployees;
 
     function getEmployees() {
-        $http.get(`${SERVER}/api/timeoffrequests`)
+        $http.get(`${SERVER}`)
         .then(function(resp){
             vm.employees = resp.data;
             console.log("You got employees", resp.data);
