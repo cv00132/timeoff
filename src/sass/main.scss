@@ -1,1 +1,67 @@
 @import "bulma";
+
+.nav {
+    background-color: #0039A6;
+    color: white !important;
+}
+
+.field-label {
+    color: white;
+    text-align: left;
+}
+
+.employee {
+    display: inline-block;
+
+    .card{
+        border-radius: 10px;
+    }
+
+    .title {
+        background: #0039A6;
+        color: white;
+        border-radius: 10px 10px 0 0;
+        margin: 0;
+    }
+}
+
+.employee-image {
+    width: 50px;
+    margin: 2%;
+    display: inline-block;
+}
+
+.requests {
+    border: 2px solid grey;
+    border-radius: 4px;
+    margin: 2%;
+    padding: 2.5%;
+    overflow: scroll;
+    background: #E9E9E9;
+
+    p{
+        display: inline-flex;
+    }
+}
+
+.calendar-image {
+    width: 50px;
+    display: inline-flex;
+}
+
+.modal-content {
+    margin: 25%;
+
+    label {
+        color: white;
+    }
+}
+
+.comments {
+    input {
+        padding: .5%;
+        text-align: left;
+        display: block;
+        width: 50%;
+    }
+}

@@ -9,14 +9,14 @@
       <a href="#!/request" class="nav-item is-tab is-hidden-mobile">Requests</a>
 
       <div class="nav-item control">
-        <a href="#!/request" class="button is-primary">
+        <a ng-click="layoutVm.toggleModal()" class="button is-primary">
           New Request
         </a>
       </div>
 
     </div>
     <div class="nav-right nav-menu">
-      <a class="nav-item is-tab">
+      <a class="nav-item is-tab profile">
         <figure class="image is-16x16" style="margin-right: 8px;">
             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
         </figure>
@@ -30,4 +30,119 @@
     </span>
   </div>
 </nav>
+
+<div class="modal">
+    <div class="modal-background">
+        <div class="modal-content">
+
+            <div class="field">
+              <div>
+                <label class="label">Employee</label>
+              </div>
+              <div class="field-body">
+                <div class="field is-grouped">
+                  <p class="control is-expanded has-icons-left">
+                    <input class="input" type="text" placeholder="Name" ng-model="input.Name">
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-user"></i>
+                    </span>
+                  </p>
+                </div>
+
+                <div class="field">
+                  <p class="control is-expanded has-icons-left has-icons-right">
+                    <input class="input" type="email" placeholder="Example@email.com" ng-model="input.EmailAddress">
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-envelope"></i>
+                    </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field value">
+                <div>
+                    <label class="label">Start Time</label>
+                </div>
+                <div class="field-body">
+                    <div class="field is-grouped">
+                        <p class="control has-icons-left">
+                            <input class="input is-narrow" type="datetime-local" ng-model="input.StartTime">
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-clock-o"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="label">End Time</label>
+                </div>
+                <div class="field-body">
+                    <div class="field is-grouped">
+                        <p class="control has-icons-left">
+                            <input class="input" type="datetime-local" ng-model="input.EndTime">
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-clock-o"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field value">
+              <div class=" ">
+                <label class="label">Reason</label>
+              </div>
+              <div class="field-body">
+                <div class="field is-narrow">
+                  <div class="control">
+                    <div class="select is-fullwidth">
+                      <select ng-model="input.Reason" value="Sick">
+                        <option value="Sick">Sick leave</option>
+                        <option value="Vacation">Vacation</option>
+                        <option value="Maternity">Maternity</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Remote-work">Working Remote</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="field value">
+              <div>
+                <label class="label">Comments</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <textarea class="textarea" placeholder="Enter comments here" ng-model="input.Comments"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <ng-hide ng-model="input.Status">
+                <input type="text" value="Pending" ng-hide="!input.Status">
+            </ng-hide>
+
+            <div class="field value">
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <button class="button is-primary" ng-click="layoutVm.submitRequest(input)">
+                      Submit Request
+                    </button>
+                    <button class="button is-danger" ng-click="layoutVm.toggleModal()">
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div ui-view></div>
