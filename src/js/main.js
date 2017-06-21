@@ -1,7 +1,5 @@
 import angular from 'angular';
 import 'angular-ui-router';
-import 'angular-ui-calendar';
-import 'angular-ui-bootstrap';
 
 import Config from './config';
 import SERVER from "./server";
@@ -13,7 +11,7 @@ import RequestController from './controller/request';
 
 
 angular
-    .module('app', ['ui.router', 'ui.calendar', 'ui.bootstrap'])
+    .module('app', ['ui.router'])
     .config(Config)
     .constant('SERVER', SERVER)
     .controller('LayoutController', LayoutController)

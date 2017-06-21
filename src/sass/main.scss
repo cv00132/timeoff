@@ -2,12 +2,45 @@
 
 .nav {
     background-color: #0039A6;
-    color: white !important;
 }
 
 .field-label {
     color: white;
     text-align: left;
+}
+
+.home {
+    border-radius: 10px;
+    overflow: scroll;
+
+    article {
+        border-radius: 10px;
+        padding: 0;
+        box-shadow: 2px 2px 10px grey;
+    }
+
+    .title {
+        background: #0039A6;
+        color: white;
+        border-radius: 10px 10px 0 0;
+        padding: 10px;
+    }
+
+    p, h5 {
+        padding-left: 5px;
+    }
+
+    .today-absence {
+        width: 100%;
+        font-size: 7rem;
+        margin: 5% 38%;
+
+        p {
+            margin: 0 -12%;
+        }
+    }
+
+
 }
 
 .employee {
@@ -42,11 +75,6 @@
     p{
         display: inline-flex;
     }
-}
-
-.calendar-image {
-    width: 50px;
-    display: inline-flex;
 }
 
 .modal-content {

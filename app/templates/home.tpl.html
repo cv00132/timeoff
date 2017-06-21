@@ -1,1 +1,56 @@
 <div>This is the Home template</div>
+
+<div class="tile is-ancestor home">
+  <div class="tile is-vertical is-8">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification">
+          <p class="title">Today</p>
+          <div class="subtitle today-absence">
+              <div>
+                  {{homeVm.employeesAbsent()}}
+              </div>
+              <p class="subtitle">Employees absent</p>
+          </div>
+        </article>
+        <article class="tile is-child notification is-warning">
+          <p class="title">Reason for time off</p>
+          <p class="subtitle"></p>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification">
+          <p class="title">Calendar</p>
+          <figure class="image">
+            <img src="http://bulma.io/images/placeholders/640x480.png">
+          </figure>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-danger">
+        <p class="title">All time off requests</p>
+        <p class="subtitle">Aligned with the right tile</p>
+        <div class="content">
+          <!-- Content -->
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child notification">
+      <div class="content">
+        <p class="title">Pending</p>
+        <div class="content" ng-repeat="request in homeVm.requests">
+          <!-- Content -->
+          <div ng-model="request.Status" ng-show="request.Status === 'Pending'">
+              <h5><a href="#!/request">{{request.Name}}</a></h5>
+              <p ng-init="startDate = homeVm.fixDate(request.StartTime); endDate = homeVm.fixDate(request.EndTime)">
+                  Date: {{startDate}} - {{endDate}}
+              </p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
