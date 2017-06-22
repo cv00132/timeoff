@@ -9,18 +9,16 @@
     text-align: left;
 }
 
-.accordion-hide {
-    display: none;
+.manager-view{
 }
 
-.accordion-show {
-    display: block;
-    padding: 1rem;
-    background: blue;
+.employee-view {
+    display: none;
 }
 
 //Styling for Home Page
 .home {
+    padding-top: 2%;
     border-radius: 10px;
     overflow: scroll;
 
@@ -44,10 +42,10 @@
     .today-absence {
         width: 100%;
         font-size: 7rem;
-        margin: 5% 38%;
+        margin: 5% auto;
 
         p {
-            margin: 0 -12%;
+            margin: 0 auto;
         }
     }
 
@@ -57,6 +55,10 @@
         padding: 1%;
         background: rgba(0.1, 0.1, 0.1, 0.1);
     }
+}
+
+.all-request-status {
+    padding: 8px;
 }
 
 //Styling for Employee Page
@@ -73,12 +75,16 @@
         border-radius: 10px 10px 0 0;
         margin: 0;
     }
+
+    .subtitle {
+        display: inline-block;
+    }
 }
 
 .employee-image {
     width: 50px;
     margin: 2%;
-    display: inline-block;
+    display: inline;
 }
 
 //Styling for Requests page
@@ -126,14 +132,47 @@
             margin-left: 2%;
             overflow: scroll;
             word-wrap: break-word;
+            border-radius: 5px;
         }
     }
 }
 
+.request-update-success {
+    font-size: 7rem;
+    color: white;
+}
+
 .modal-content {
-    margin: 25%;
+    margin: 17% auto;
 
     label {
         color: white;
+    }
+}
+
+.warning {
+    background: rgba(255,221,87,.6);
+    border-radius: 10px;
+}
+
+.success {
+    background: rgba(50,115,220,.6);
+    border-radius: 10px;
+}
+
+.danger {
+    background: rgba(255,56,96,.6);
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .requests {
+        width: 100%;
+        margin: 0;
+    }
+
+    .employee {
+        width: 100%;
     }
 }

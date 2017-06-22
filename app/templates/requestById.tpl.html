@@ -1,0 +1,67 @@
+<div class="">
+    Single request by Id
+</div>
+
+<div class="hero-body" ng-class="{warning: requestByIdVm.requests.Status === 'Pending', success: requestByIdVm.requests.Status === 'Approved', danger: requestByIdVm.requests.Status === 'Declined'}">
+    <div class="is-pulled-right">
+        <div class="status label">
+            <select ng-model="requestByIdVm.requests.Status" value="requestByIdVm.requests.Status">
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+                <option value="Declined">Declined</option>
+            </select>
+        </div>
+
+        <div>
+            <div class="button is-info" ng-click="requestByIdVm.approveRequest(requestByIdVm.requests); requestByIdVm.successfulUpdate()">
+                SUBMIT
+            </div>
+            <div class="button is-danger" ng-click="requestByIdVm.deleteRequest(requestByIdVm.requests.Id)">
+                DELETE
+            </div>
+        </div>
+    </div>
+
+    <div class="label">
+        Employee:
+        <div>
+            <img src="http://blog.springfield.k12.or.us/yolanda/files/2009/02/person-placeholder-5.png" alt="user-image" class="single-user-image">
+            <div>
+                <p class="title">{{requestByIdVm.requests.Name}}</p>
+                <p class="subtitle">{{requestByIdVm.requests.EmailAddress}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="label">
+        Reason:
+        <div class="request-reason">
+            {{requestByIdVm.requests.Reason}}
+        </div>
+    </div>
+
+    <div class="label">
+        Time Requested Off:
+        <div class="request-dates">
+            <p ng-init="date = requestByIdVm.fixDate(requestByIdVm.requests.StartTime)">{{date}}</p>
+            -
+            <p ng-init="date = requestByIdVm.fixDate(requestByIdVm.requests.EndTime)">{{date}}</p>
+        </div>
+    </div>
+
+    <div class="request-comments">
+        <p class="label">Comments:</p>
+        <input type="textarea" ng-model="requestByIdVm.requests.Comments">
+    </div>
+</div>
+
+<div class="modal successful-update">
+    <div class="modal-background">
+        <div class="modal-content request-update-success">
+            Thank you for updating request!
+        </div>
+    </div>
+    <div class="modal-close" ng-click="requestByIdVm.returnToPage()">
+
+    </div>
+</div>

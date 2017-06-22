@@ -1,16 +1,15 @@
-<div>This is the Home template</div>
-
 <div class="tile is-ancestor home">
   <div class="tile is-vertical is-8">
     <div class="tile">
       <div class="tile is-parent is-vertical">
         <article class="tile is-child notification">
           <p class="title">Today</p>
-          <div class="subtitle today-absence">
-              <div>
-                  {{homeVm.employeesAbsent()}}
+          <div class="subtitle">
+              <div class=" today-absence has-text-centered">
+                  {{homeVm.employeesAbsent().length}}
+                  <p class="subtitle">Employees absent</p>
+                  <hr>
               </div>
-              <p class="subtitle">Employees absent</p>
           </div>
         </article>
         <article class="tile is-child notification">
@@ -47,14 +46,16 @@
               </thead>
               <tbody ng-repeat="request in homeVm.requests">
                 <tr>
-                  <td><a href="#!/requests"><strong>{{request.Name}}</strong></a>
+                  <td><a href="#!/requestById/{{request.Id}}"><strong>{{request.Name}}</strong></a>
                   </td>
                   <td>{{request.EmailAddress}}</td>
                   <td>{{homeVm.fixDate(request.StartTime)}}</td>
                   <td>{{homeVm.fixDate(request.EndTime)}}</td>
                   <td>{{request.Reason}}</td>
-                  <td  class="time-off-status button">
-                      {{homeVm.colorStatus(request.Status)}}
+                  <td>
+                      <span class="all-request-status" ng-class="{warning: request.Status === 'Pending', success: request.Status === 'Approved', danger: request.Status === 'Declined'}">
+                          {{request.Status}}
+                      </span>
                   </td>
                   <td>{{request.Comments}}</td>
                 </tr>
@@ -71,7 +72,7 @@
         <div class="content" ng-repeat="request in homeVm.requests">
           <!-- Content -->
           <div class="pending-request" ng-model="request.Status" ng-show="request.Status === 'Pending'">
-              <h5><a href="#!/request">{{request.Name}}</a></h5>
+              <h5><a href="#!/requestById/{{request.Id}}">{{request.Name}}</a></h5>
               <p ng-init="startDate = homeVm.fixDate(request.StartTime); endDate = homeVm.fixDate(request.EndTime)">
                   Date: {{startDate}} - {{endDate}}
               </p>
