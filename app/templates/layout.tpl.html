@@ -16,12 +16,16 @@
 
     </div>
     <div class="nav-right nav-menu">
-      <a class="nav-item is-tab profile">
+      <a class="nav-item is-tab" ng-click="layoutVm.toggleView()">
         <figure class="image is-16x16" style="margin-right: 8px;">
             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
         </figure>
         Profile
       </a>
+      <div class="accordion-hide profile-view">
+          <div>Manager</div>
+          <div>Employee</div>
+      </div>
     </div>
     <span class="nav-toggle">
       <span></span>
@@ -111,21 +115,7 @@
               </div>
             </div>
 
-            <div class="field value">
-              <div>
-                <label class="label">Comments</label>
-              </div>
-              <div class="field-body">
-                <div class="field">
-                  <div class="control">
-                    <textarea class="textarea" placeholder="Enter comments here" ng-model="input.Comments"></textarea>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <ng-hide ng-model="input.Status">
-                <input type="text" value="Pending" ng-hide="!input.Status">
+            <ng-hide ng-model="input.Status" ng-init="input.Status = 'Pending'">
             </ng-hide>
 
             <div class="field value">

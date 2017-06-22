@@ -1,1 +1,83 @@
 <div>This is the Home template</div>
+
+<div class="tile is-ancestor home">
+  <div class="tile is-vertical is-8">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification">
+          <p class="title">Today</p>
+          <div class="subtitle today-absence">
+              <div>
+                  {{homeVm.employeesAbsent()}}
+              </div>
+              <p class="subtitle">Employees absent</p>
+          </div>
+        </article>
+        <article class="tile is-child notification">
+          <p class="title">Reason for time off</p>
+          <div class="subtitle time-off-reason">
+              <p>{{homeVm.reasonForRequest()}}</p>
+              <p></p>
+          </div>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification">
+          <p class="title">Calendar</p>
+            <iframe src="https://teamup.com/ks77k3jk7m5mw6y76t" frameborder="0" width="100%" height="700"></iframe>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification">
+        <p class="title">All time off requests</p>
+        <div class="content">
+          <!-- Content -->
+          <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
+                  <th>Reason</th>
+                  <th>Status</th>
+                  <th>Comments</th>
+                </tr>
+              </thead>
+              <tbody ng-repeat="request in homeVm.requests">
+                <tr>
+                  <td><a href="#!/requests"><strong>{{request.Name}}</strong></a>
+                  </td>
+                  <td>{{request.EmailAddress}}</td>
+                  <td>{{homeVm.fixDate(request.StartTime)}}</td>
+                  <td>{{homeVm.fixDate(request.EndTime)}}</td>
+                  <td>{{request.Reason}}</td>
+                  <td  class="time-off-status button">
+                      {{homeVm.colorStatus(request.Status)}}
+                  </td>
+                  <td>{{request.Comments}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child notification">
+      <div class="content pending">
+        <p class="title">Pending</p>
+        <div class="content" ng-repeat="request in homeVm.requests">
+          <!-- Content -->
+          <div class="pending-request" ng-model="request.Status" ng-show="request.Status === 'Pending'">
+              <h5><a href="#!/request">{{request.Name}}</a></h5>
+              <p ng-init="startDate = homeVm.fixDate(request.StartTime); endDate = homeVm.fixDate(request.EndTime)">
+                  Date: {{startDate}} - {{endDate}}
+              </p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

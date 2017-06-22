@@ -1,5 +1,5 @@
 <div>
-    This is the request calendar template.
+    This is the request template.
 </div>
 
 <div ng-repeat="request in requestVm.requests" class="requests hero-body box">
@@ -13,7 +13,7 @@
         </div>
 
         <div>
-            <div class="button is-success" ng-click="requestVm.approveRequest(request); requestVm.successfulUpdate()">
+            <div class="button is-info" ng-click="requestVm.approveRequest(request); requestVm.successfulUpdate()">
                 SUBMIT
             </div>
             <div class="button is-danger" ng-click="requestVm.deleteRequest(request.Id)">
@@ -25,7 +25,7 @@
     <div class="label">
         Employee:
         <div>
-            <img src="http://blog.springfield.k12.or.us/yolanda/files/2009/02/person-placeholder-5.png" alt="user-image" class="calendar-image">
+            <img src="http://blog.springfield.k12.or.us/yolanda/files/2009/02/person-placeholder-5.png" alt="user-image" class="request-user-image">
             <p class="title">{{request.Name}}</p>
             <p class="subtitle">{{request.EmailAddress}}</p>
         </div>
@@ -33,21 +33,21 @@
 
     <div class="label">
         Reason:
-        <div>
+        <div class="request-reason">
             {{request.Reason}}
         </div>
     </div>
 
     <div class="label">
         Time Requested Off:
-        <div>
+        <div class="request-dates">
             <p ng-init="date = requestVm.fixDate(request.StartTime)">{{date}}</p>
             -
             <p ng-init="date = requestVm.fixDate(request.EndTime)">{{date}}</p>
         </div>
     </div>
 
-    <div class="comments">
+    <div class="request-comments">
         <p class="label">Comments:</p>
         <input type="textarea" ng-model="request.Comments">
     </div>
@@ -55,7 +55,7 @@
 
 <div class="modal successful-update">
     <div class="modal-background">
-        <div class="modal-content">
+        <div class="modal-content request-update-success">
             Thank you for updating request!
         </div>
     </div>
