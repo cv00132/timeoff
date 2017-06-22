@@ -1,9 +1,3 @@
-<div>
-    <div class="color-key">
-
-    </div>
-</div>
-
 <div ng-repeat="request in requestVm.requests" class="requests hero-body box is-block-mobile" ng-class="{warning: request.Status === 'Pending', success: request.Status === 'Approved', danger: request.Status === 'Declined'}">
     <div class="is-pulled-right">
         <div class="status label">
@@ -59,7 +53,7 @@
 
 <div class="modal successful-update">
     <div class="modal-background">
-        <div class="modal-content request-update-success">
+        <div class="modal-content request-update-success has-text-centered">
             Thank you for updating request!
         </div>
     </div>

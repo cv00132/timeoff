@@ -6,6 +6,7 @@ function HomeController($http, $state, SERVER) {
     vm.employees = [];
     vm.startDates = [];
     vm.endDates = [];
+    vm.reasons = [];
     //vm.absentees = [];
 
     vm.fixDate = fixDate;
@@ -21,6 +22,7 @@ function HomeController($http, $state, SERVER) {
                 vm.startDates.push(vm.requests[i].StartTime);
                 vm.endDates.push(vm.requests[i].EndTime);
                 vm.employees.push(vm.requests[i].Name);
+                vm.reasons.push(vm.requests[i].Reason);
             }
         })
         .catch(function(error){
@@ -46,18 +48,32 @@ function HomeController($http, $state, SERVER) {
                 absentees.push(vm.employees[i])
             }
         }
-        console.log(absentees)
+        console.log(absentees[0])
         return absentees;
     }
 
     function reasonForRequest () {
 
-        for(var i = 0; i < vm.requests.length; i++){
-            var reason = vm.requests[i].Reason;
+        var current = null;
+        var count = 0;
+        for (var i = 0; i < vm.reasons.length; i++) {
+            if (vm.reasons[i] != current) {
+                if (count > 0) {
+                    console.log(current,count)
+                    return current + count ;
+                }
+                current = vm.reasons[i];
+                count = 1;
+            } else {
+                count++;
+            }
+        }
+        if (count > 0) {
+            console.log(current, count)
+            return current  + count;
         }
 
     }
-
 }
 
 HomeController.$inject=['$http', '$state', 'SERVER'];

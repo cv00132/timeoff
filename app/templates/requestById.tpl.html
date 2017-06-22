@@ -1,8 +1,4 @@
-<div class="">
-    Single request by Id
-</div>
-
-<div class="hero-body" ng-class="{warning: requestByIdVm.requests.Status === 'Pending', success: requestByIdVm.requests.Status === 'Approved', danger: requestByIdVm.requests.Status === 'Declined'}">
+<div class="request-by-id" ng-class="{warning: requestByIdVm.requests.Status === 'Pending', success: requestByIdVm.requests.Status === 'Approved', danger: requestByIdVm.requests.Status === 'Declined'}">
     <div class="is-pulled-right">
         <div class="status label">
             <select ng-model="requestByIdVm.requests.Status" value="requestByIdVm.requests.Status">
@@ -43,9 +39,7 @@
     <div class="label">
         Time Requested Off:
         <div class="request-dates">
-            <p ng-init="date = requestByIdVm.fixDate(requestByIdVm.requests.StartTime)">{{date}}</p>
-            -
-            <p ng-init="date = requestByIdVm.fixDate(requestByIdVm.requests.EndTime)">{{date}}</p>
+            <p>{{requestByIdVm.fixDate(requestByIdVm.requests.StartTime)}} - {{requestByIdVm.fixDate(requestByIdVm.requests.EndTime)}}</p>
         </div>
     </div>
 
