@@ -8,6 +8,8 @@ function HomeController($http, $state, SERVER) {
 
     vm.fixDate = fixDate;
     vm.employeesAbsent = employeesAbsent;
+    vm.reasonForRequest = reasonForRequest;
+    vm.colorStatus = colorStatus;
 
     function init(){
         $http.get(`${SERVER}`)
@@ -39,18 +41,36 @@ function HomeController($http, $state, SERVER) {
 
         for(var i = 0; i < vm.startDates.length; i++){
             if(new Date(ending[i]).getDate() >= today && new Date(beginning[i]).getDate() <= today){
-                console.log(new Date(beginning[i]).getDate(), today, new Date(ending[i]).getDate())
                 employees += 1
             }
         } return employees
     }
 
-    function getTotal (){
-        return
+    function reasonForRequest () {
+
+        for(var i = 0; i < vm.requests.length; i++){
+            var reason = vm.requests[i].Reason;
+        }
+
     }
 
-    function timeOffInfo () {
+    function colorStatus (status) {
+        var requestStatus = angular.element(document.querySelector( '.time-off-status' ));
 
+        if(status === 'Pending'){
+            requestStatus.addClass('is-warning');
+            requestStatus.removeClass('is-success');
+            requestStatus.removeClass('is-danger');
+        } else if(status === 'Approved'){
+            requestStatus.addClass('is-success');
+            requestStatus.removeClass('is-warning');
+            requestStatus.removeClass('is-danger');
+        } else if(status === 'Declined'){
+            requestStatus.addClass('is-danger');
+            requestStatus.removeClass('is-success');
+            requestStatus.removeClass('is-warning');
+        }
+        return status
     }
 }
 
