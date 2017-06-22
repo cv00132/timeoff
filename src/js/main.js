@@ -8,6 +8,7 @@ import LayoutController from './controller/layout';
 import HomeController from './controller/home';
 import EmployeesController from './controller/employees';
 import RequestController from './controller/request';
+import RequestByIdController from './controller/requestById'
 
 
 angular
@@ -18,4 +19,5 @@ angular
     .controller('HomeController', HomeController)
     .controller('EmployeesController', EmployeesController)
     .controller('RequestController', RequestController)
+    .controller('RequestByIdController', RequestByIdController)
 ;

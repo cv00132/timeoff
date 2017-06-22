@@ -2,16 +2,29 @@ function LayoutController($http, $state, SERVER) {
 
     let vm = this;
 
-    vm.toggleView = toggleView;
+    vm.managerView = managerView;
+    //vm.employeeView = employeeView;
     vm.toggleModal = toggleModal;
     vm.submitRequest = submitRequest;
 
-    function toggleView(){
+    function managerView(){
         console.log("button clicked")
 
-        var profileView = angular.element( document.querySelector( '.profile-view' ) );
-        profileView.toggleClass('accordion-hide');
-        profileView.toggleClass('accordion-show');
+        var managerView = angular.element( document.querySelectorAll( '.view' ) );
+        //managerView.addClass('manager-view');
+        managerView.toggleClass('employee-view');
+
+        $state.go('root.employees')
+    }
+
+    function employeeView(){
+        console.log("button clicked")
+
+        var employeeView = angular.element( document.querySelectorAll( '.view' ) );
+        employeeView.removeClass('manager-view');
+        employeeView.toggleClass('employee-view');
+
+
     }
 
     function toggleModal(){

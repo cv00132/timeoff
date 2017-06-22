@@ -1,8 +1,10 @@
 <div>
-    This is the request template.
+    <div class="color-key">
+
+    </div>
 </div>
 
-<div ng-repeat="request in requestVm.requests" class="requests hero-body box">
+<div ng-repeat="request in requestVm.requests" class="requests hero-body box is-block-mobile" ng-class="{warning: request.Status === 'Pending', success: request.Status === 'Approved', danger: request.Status === 'Declined'}">
     <div class="is-pulled-right">
         <div class="status label">
             <select ng-model="request.Status" value="request.Status">
@@ -26,8 +28,10 @@
         Employee:
         <div>
             <img src="http://blog.springfield.k12.or.us/yolanda/files/2009/02/person-placeholder-5.png" alt="user-image" class="request-user-image">
-            <p class="title">{{request.Name}}</p>
-            <p class="subtitle">{{request.EmailAddress}}</p>
+            <div>
+                <p class="title">{{request.Name}}</p>
+                <p class="subtitle">{{request.EmailAddress}}</p>
+            </div>
         </div>
     </div>
 

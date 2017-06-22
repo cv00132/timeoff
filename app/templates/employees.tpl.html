@@ -1,13 +1,9 @@
-<div>
-    This is the Employees template.
-</div>
-
 <div ng-repeat="employee in employeesVm.employees" class="column is-one-third employee">
     <div class="card">
         <h2 class="title is-2 has-text-centered">{{employee.Name}}</h2>
-        <div class="media-content">
-            <p class="has-text-centered">{{employee.EmailAddress}}</p>
+        <div class="card-content">
             <img src="http://blog.springfield.k12.or.us/yolanda/files/2009/02/person-placeholder-5.png" alt="user-image"  class="employee-image">
+            <p class="subtitle has-text-centered">{{employee.EmailAddress}}</p>
         </div>
     </div>
 </div>
